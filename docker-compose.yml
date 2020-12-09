@@ -1,0 +1,10 @@
+version: "3.4"
+
+services:
+  php:
+    container_name: web-container
+    build:
+      context: .
+      dockerfile: ./Docker/php/Dockerfile
+    ports:
+      - 80:80
