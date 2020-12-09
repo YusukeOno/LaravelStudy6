@@ -6,7 +6,8 @@ workflows:
 jobs:
   test:
     docker:
-      - image: circleci/7.3.14-apache-node # https://circleci.com/docs/ja/2.0/docker-image-tags.json
+      - image: circleci/php:7.3-node-browsers
+      # - image: circleci/7.3.14-apache-node # https://circleci.com/docs/ja/2.0/docker-image-tags.json
 
     steps:
       - checkout
