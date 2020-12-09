@@ -2,6 +2,7 @@ FROM centos:centos7.9.2009
 
 RUN rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7 && \
     yum -y install \
+    unzip \
     vim \
     httpd && \
     yum clean all && \
@@ -17,10 +18,11 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 WORKDIR /var/www/local.myhost
 
 COPY ./Docker/php/my-host.conf /etc/httpd/conf.d/my-vhost.conf
-COPY ./src/ /var/www/local.myhost/
 COPY ./Docker/php/env.local /var/www/local.myhost/.env
+COPY ./src/ /var/www/local.myhost/
 
-RUN chmod -R 777 /var/www/local.myhost/storage
+RUN chmod -R 777 /var/www/local.myhost/storage && \
+    composer install
 
 EXPOSE 80
 
