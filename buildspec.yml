@@ -1,0 +1,8 @@
+version: 0.2
+
+run-as: ec2-user
+
+phases:
+  build:
+    commands:
+      - echo 'test!'
