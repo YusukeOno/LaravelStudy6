@@ -2,5 +2,6 @@
 version: 0.0
 os: linux
 files:
-  - source: /
-    destination: /home/ec2-user
+  - source: / # Deploy元
+    destination: /var/www/local.myhost # Deploy先
+    runas: ec2-user #
